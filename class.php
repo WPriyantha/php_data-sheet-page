@@ -57,7 +57,7 @@ if(isset($_POST["submit"])){
             <label for="">Languages</label>
             <input type="text" name="languages"> <br><br>
 
-            <button type="submit" name="submit">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary btn-lg active" >Submit</button>
 </div>
     </form></center>
 
