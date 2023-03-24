@@ -23,11 +23,17 @@ if(isset($_POST["submit"])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP class with Data base management</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <center>
         <br>
-    <form class="" action="" method="post">
+    <form class="form-inline" action="" method="post">
+        <div class="form-group">
             <label for="">Name</label>
             <input type="text" name="name"> <br><br>
 
@@ -44,20 +50,21 @@ if(isset($_POST["submit"])){
             </select> <br><br>
 
             <label for="">Gender</label>
-            <input type="radio" name="gender" value="male">Male 
-            <input type="radio" name="gender" value="female">Female
+            <input type="radio" name="gender" value="Male">Male 
+            <input type="radio" name="gender" value="Female">Female
             <br><br>
 
             <label for="">Languages</label>
             <input type="text" name="languages"> <br><br>
 
             <button type="submit" name="submit">Submit</button>
+</div>
     </form></center>
 
     <hr>
     <center>
     <h2>Table View</h2>
-    <table border="1">
+    <table border="1" class="table table-bordered">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -74,7 +81,7 @@ if(isset($_POST["submit"])){
 // So, SELECT * FROM tbl data means--] select all from tbl data table
         if($result -> num_rows > 0){
             while($row = $result -> fetch_assoc()){
-                
+                $id = $row['id'];
     
         ?>  
        <tr>
@@ -91,8 +98,8 @@ if(isset($_POST["submit"])){
             <td><?php echo $row['gender']?></td>
             <td><?php echo $row['languages']?></td>
             <td>
-                <a href = "#">Edit</a> |
-                <a href = "#">Delete</a>
+                <a href = "edit.php?id=<?php echo $id; ?>">Edit</a> |
+                <a href = "delete.php?id=<?php echo $id; ?>" onclick="return confirm('Do you want to delete?')">Delete</a>
 
             </td>
        </tr>
