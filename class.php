@@ -53,5 +53,56 @@ if(isset($_POST["submit"])){
 
             <button type="submit" name="submit">Submit</button>
     </form></center>
+
+    <hr>
+    <center>
+    <h2>Table View</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Gender</th>
+            <th>Language</th>
+        </tr>
+        <?php
+        $i =1;
+        $query= "SELECT * FROM tbl_data";
+        $result = mysqli_query($connection, $query);
+// "*" means all
+// So, SELECT * FROM tbl data means--] select all from tbl data table
+        if($result -> num_rows > 0){
+            while($row = $result -> fetch_assoc()){
+                
+    
+        ?>  
+       <tr>
+            <td>
+            <?php echo $i++ ?>
+                <!-- here we can pu this <?php echo $row['id']?>  
+                ut, if you any data in middle in the tbl_data, if will not that 
+                number in the order so we can give an alter idea of giving a value for var i-->
+
+            </td>
+            <td><?php echo $row['name']?></td>
+            <td><?php echo $row['age']?></td>
+            <td><?php echo $row['country']?></td>
+            <td><?php echo $row['gender']?></td>
+            <td><?php echo $row['languages']?></td>
+            <td>
+                <a href = "#">Edit</a> |
+                <a href = "#">Delete</a>
+
+            </td>
+       </tr>
+       <!-- here we add the last two curly brackets of the above if condition to insert those values into this row  -->
+       <!-- to connect with the above php functions here also we put the curly brackets in a php tag -->
+       <?php
+                 }
+            }
+     ?>
+    </table></center>
 </body>
+
 </html>
