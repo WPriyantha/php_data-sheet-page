@@ -1,7 +1,7 @@
 
 <?php
 require 'connection.php';
-// adding a comment to check push command"
+// adding a comment to check push command- Test comment"
 if(isset($_POST["submit"])){
     $name = $_POST["name"];
     $age = $_POST["age"];
