@@ -31,17 +31,19 @@ if(isset($_POST["submit"])){
 </head>
 <body>
     <center>
+        <h1 class="alert alert-success">User Basic Information</h1>
         <br>
-        <div class="container-fluid">
-    <form class="form-inline" action="" method="post">
-        <div class="form-group">
-            <label for="">Name</label>
+        <div>
+    <form action="" method="post">
+    <div class="form-row align-items-center">
+        <div class="col-auto">
+            <label for="">Name: </label>
             <input type="text" name="name"> <br><br>
 
-            <label for="">Age</label>
+            <label for="">Age: </label>
             <input type="text" name="age"> <br><br>
 
-            <label for="">Country</label>
+            <label for="">Country: </label>
             <select name="country" id="">
                     <option value="Sri Lanka">Sri Lanka</option>
                     <option value="India">India</option>
@@ -50,22 +52,25 @@ if(isset($_POST["submit"])){
 
             </select> <br><br>
 
-            <label for="">Gender</label>
+            <label for="">Gender: </label>
             <input type="radio" name="gender" value="Male">Male 
             <input type="radio" name="gender" value="Female">Female
             <br><br>
 
-            <label for="">Languages</label>
+            <label for="">Languages: </label>
             <input type="text" name="languages"> <br><br>
-
-            <button type="submit" name="submit" class="btn btn-primary btn-lg active" >Submit</button>
-</div>
+            </div>
+        </div>
+        <div class="col-auto my-1">
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <br>
     </form></center></div>
 
     <hr>
     <center>
-    <h2>Table View</h2>
-    <table border="1" class="table table-bordered">
+    <h2 class="alert alert-primary">Table View</h2>
+    <table border="1" class="table table-hover">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -99,8 +104,8 @@ if(isset($_POST["submit"])){
             <td><?php echo $row['gender']?></td>
             <td><?php echo $row['languages']?></td>
             <td>
-                <a href = "edit.php?id=<?php echo $id; ?>">Edit</a> |
-                <a href = "delete.php?id=<?php echo $id; ?>" onclick="return confirm('Do you want to delete?')">Delete</a>
+                <a href = "edit.php?id=<?php echo $id; ?>"><button type="button" class="btn btn-outline-success">Edit</button></a> |
+                <a href = "delete.php?id=<?php echo $id; ?>" onclick="return confirm('Do you want to delete?')"><button type="button" class="btn btn-outline-danger">Delete</button></a>
 
             </td>
        </tr>
