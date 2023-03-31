@@ -32,6 +32,7 @@ if(isset($_POST["submit"])){
 <body>
     <center>
         <br>
+        <div class="container-fluid">
     <form class="form-inline" action="" method="post">
         <div class="form-group">
             <label for="">Name</label>
@@ -59,7 +60,7 @@ if(isset($_POST["submit"])){
 
             <button type="submit" name="submit" class="btn btn-primary btn-lg active" >Submit</button>
 </div>
-    </form></center>
+    </form></center></div>
 
     <hr>
     <center>
